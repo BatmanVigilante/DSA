@@ -2,9 +2,8 @@
 #include <iostream>
 using namespace std;
 int main(){
-    int n;
-    cin>>n;
-    cout<<n;
+    string s = "Visca Barca";
+    cout<<s[s.size()-1];
 
     return 0;
 }
