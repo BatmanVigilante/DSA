@@ -3,8 +3,9 @@
 using namespace std;
 int main(){
     string s = "Visca Barca";
-    cout<<s[s.size()-1];
+    reverse(s.begin(),s.end());
+    cout<<s;
 
     return 0;
 }
-// Compare this snippet from basicString.cpp:
+
