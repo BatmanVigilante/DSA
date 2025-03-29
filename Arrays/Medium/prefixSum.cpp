@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-//Prefix Sum
+//Prefix Sum without using prefix array
 int main(){
     int n;
     cin>>n;
@@ -9,17 +9,14 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>a[i];
     }
-    int prefixSum[n];
-    prefixSum[0]=a[0];
-    for(int i=1;i<n;i++){
-        prefixSum[i]=prefixSum[i-1]+a[i];
-    }
-    int sum=0,ans=INT_MIN;
+    int min_pre = 1e9;
+    int sum = 0;
+    int ans = -1e9;
     for(int i=0;i<n;i++){
-        for(int j=i;j<n;j++){
-            sum=prefixSum[j]-prefixSum[i-1];
-            ans=max(sum,ans);
-        }
+        sum+=a[i];
+        ans = max(ans,sum);
+        min_pre = min(min_pre,sum);
+        ans = max(ans,sum-min_pre);
     }
     cout<<ans;
     return 0;
