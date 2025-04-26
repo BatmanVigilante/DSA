@@ -12,26 +12,30 @@ int main()
     }
     int key;
     cin >> key;
-    int low = 0;
-    int high = n - 1;
-    int mid = 0;
-    while (low <= high)
-    {
-        mid = (low + high) / 2;
-        if (arr[mid] > key)
-        {
-            cout << mid << endl;
-            return 0;
-        }
-        else if (arr[mid] < key)
-        {
-            low = mid + 1;
-        }
-        else
-        {
-            high = mid - 1;
-        }
-    }
+    // int low = 0;
+    // int high = n - 1;
+    // int mid = 0;
+    // while (low <= high)
+    // {
+    //     mid = (low + high) / 2;
+    //     if (arr[mid] > key)
+    //     {
+    //         cout << mid << endl;
+    //         return 0;
+    //     }
+    //     else if (arr[mid] < key)
+    //     {
+    //         low = mid + 1;
+    //     }
+    //     else
+    //     {
+    //         high = mid - 1;
+    //     }
+    // }
+    //Using upper_bound()
+    auto it = upper_bound(arr.begin(), arr.end(), key);
+    int index = it - arr.begin();
+    cout << index << endl;
 
     return 0;
 }
